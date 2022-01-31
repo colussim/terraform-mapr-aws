@@ -19,3 +19,18 @@ This repository allows you to create a kubernetes cluster 4 nodes (1 master and 
 ## Infra
 ![infra, the Kubernetes infra](/images/archi.png)
 
+## Initial setup
+
+The source directory contains two GO programs (**PutReverseIP.go** and **ReverseIP.go**) that are used by the Terraform master and worker deployment scripts to generate the reverse ip addresses and the **nodehost.json** file (in directory **k8sdeploy-scripts**).
+You may need to recompile them , so you will need GO. After the compilation it will be necessary to copy the binary in the directory: **k8sdeploy-scripts**
+
+
+
+Clone the repository and install the dependencies:
+
+```
+
+$ git clone https://github.com/colussim/terraform-mapr-aws.git
+$ cd terraform-mapr-aws
+$ terraform init
+
