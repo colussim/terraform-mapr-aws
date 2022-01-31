@@ -171,5 +171,5 @@ To activate the Enterprise license (to have the snap functionality) you need to 
 You must connect on the following link: https://mapr.com/user/
 
 You must retrieve the id of your cluster.In the dashboard in the menu **Admin/Cluster Settings/Licenses**
-![mapr license, maprlicense(/images/importlincence-mapr1)
+![mapr license, maprlicense(/images/importlincence-mapr1.png)
 
