@@ -34,22 +34,20 @@ The source directory contains two GO programs (**PutReverseIP.go** and **Reverse
 You may need to recompile them , so you will need GO. After the compilation it will be necessary to copy the binary in the directory: **k8sdeploy-scripts**
 
 
-
 Clone the repository and install the dependencies:
 
 ```
-
 $ git clone https://github.com/colussim/terraform-mapr-aws.git
 $ cd terraform-mapr-aws
-
+```
 
 We will immediately create a dedicated ssh key pair to connect to our AWS EC2 instances.
 
 ```
-
 $ mkdir ssh-keys
 $ ssh-keygen -t rsa -f id_rsa_aws
 $ ssh-keygen -t rsa -f id_rsa_aws
+```
 
 We now have two files id_rsa_aws and id_rsa_aws.pub in our ssh-keys directory.
 
@@ -60,6 +58,6 @@ Use terraform init command in terminal to initialize terraform and download the 
 
 ```
 $ terraform init
-
+```
 
 
