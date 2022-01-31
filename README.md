@@ -332,6 +332,39 @@ We can now create our PVC
 
 ### Create a PVC
 
+We will create a PVC of about 50Gb which is named **mapr-sqlserver-data01** and which uses the storage class **mapr-student-sc**
 
+create_pvc.yaml file :
 
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mapr-sqlserver-data01 
+  namespace: mapr-student
+spec:
+  storageClassName: mapr-student-sc 
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50G
+```
+
+```
+$ kubectl create -f create_pvc.yaml
+```
+
+Check a PVC is created :
+
+```
+$ get pvc -n mapr-student                                                                                                                                                                                                                           
+NAME                   STATUS   VOLUME                                         CAPACITY   ACCESS MODES   STORAGECLASS      AGE                                                                                                                                            
+mapr-sqlserver-data01   Bound    mapr-pv-8a5dfc69-9e89-4ebe-a008-fdb95830c25f   49Gi       RWO            mapr-student-sc   14s    
+```
+
+You can connect to the MapR management web interface and see the volume created :
+
+![mapr volume, maprvolume](dashboard-volume1.png)
 
