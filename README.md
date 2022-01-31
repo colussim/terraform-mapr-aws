@@ -156,6 +156,10 @@ $ terraform apply
 
 After a few minutes your HPE Ezmeral Data Fabric Cluster is up 😀 
 
+You can now connect to the web management interface of your cluster : https://workernode1:8443 with the user mapr (the password is mapr)
+
+![mapr login, maprlogin](/images/login2-ui.png)
+
 To activate the Enterprise license (to have the snap functionality) you need to create an account on mapr and register your cluster and then copy the license.
 You must connect on the following link: https://mapr.com/user/
 
