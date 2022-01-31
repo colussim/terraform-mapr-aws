@@ -16,10 +16,10 @@ config:
     - /dev/xvdh
     - /dev/xvdi
   ssh_id: root 
-  ssh_password: Bench123
+  ssh_password: xxxxx
   license_type: M5
   mep_version: 8.0.0
-  mapr_external: k8sworker0:54.161.133.187,k8sworker1:54.209.64.65,k8sworker2:3.94.187.194
+  mapr_external: k8sworker0:x.x.x.x,k8sworker1:x.x.x.x,k8sworker2:x.x.x.x
   mapr_id: '103754'
   mapr_name: your email address to register for the license
   mapr_subnet: 10.1.0.0/16
