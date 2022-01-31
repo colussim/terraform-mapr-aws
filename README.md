@@ -173,3 +173,8 @@ You must connect on the following link: https://mapr.com/user/
 You must retrieve the id of your cluster.In the dashboard in the menu **Admin/Cluster Settings/Licenses**
 ![mapr license, maprlicense](/images/importlincence-mapr1.png)
 
+Then connect (or create an account) on https://mapr.com/user/ and add your cluster.A license will be generated, and it will have to be imported.
+
+Go to the Admin/Cluster Settings/Licenses menu and choose the option that suits you:
+![mapr license, maprlicense](/images/maprlic.png)
+
