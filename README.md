@@ -379,3 +379,10 @@ As you can see, it is quite easy to deploy a HPE Ezmeral Data Fabric File Store 
 
 In this repository you can just use the **MAPR** part if you already have an existing kubernetes cluster whether it is viryualized or not.
 
+## Link
+
+HPE Ezmeral Data Fabric download : https://mapr.com/download/
+Installer Stanza Commands : https://docs.datafabric.hpe.com/62/AdvancedInstallation/Stanzas/SilentInstallerCommands.html
+HPE Ezmeral Data Fabric CSI Storage Plugin : https://github.com/mapr/mapr-csi
+HPE Ezmeral Data Fabric CSI documentation : https://docs.datafabric.hpe.com/62/CSIdriver/csi_using_and_troubleshooting.html
+
