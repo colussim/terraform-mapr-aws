@@ -7,6 +7,8 @@ HPE Ezmeral Data Fabric, part of the HPE Ezmeral software portfolio, uses innova
 HPE Ezmeral Data Fabric File Store is a distributed filesystem for data storage, data management, and data protection. File Store supports mounting and cluster access via NFS and FUSE-based POSIX clients (basic, platinum, or PACC) and also supports access and management via HDFS APIs.
 You can manage your clusters from the Managed Control System (web console) and monitor them using HPE Ezmeral Data Fabric Monitoring. 
 
+![infra, the Kubernetes infra](/images/MapR-XD-Architectural_Graphic.png)
+
 This repository allows to create a 4 nodes kubernetes cluster (1 master and 3 workers) on AWS, 
 This repository allows you to create a kubernetes cluster 4 nodes (1 master and 3 workers) on AWS, it includes 2 phases:
  - Deployment of centos 8.3 instances :
