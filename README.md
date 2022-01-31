@@ -69,15 +69,19 @@ Installer Stanzas enable  API-driven installation for the industry’s only conv
 
 This  new capability is very useful when you need a script-based tool to  install the software and you do not want to click through the menus and  options provided by the installer wizard. While this method provides  less visual feedback than the GUI version, it can be faster and more  efficient at installing software on clusters with many nodes. Not only  that, but once a Stanza gets defined, you can automate the cluster setup  process for each successive cluster creation with a minimum set of  changes.
 
+
 The deployment configuration file is in the **Stanzas** directory : **cluster-install.yaml**
+We deploy the enterprise version which is trial for 30 days, because it allows more functionality than the free community version like snap, clone ...
 
 you will need to edit this file to change the following entries to your values :
 
-**cluster_name:** your cluster name
-**ssh_password:** your root passwd on installer node
-**mapr_external:** host_name:ip_public  **All host in your cluster***
-**mapr_subnet:** your intenal ip subnet
-**cluster_admin_password:** your password for mapr users
+- **cluster_name:** your cluster name
+- **ssh_password:** your root passwd on installer node
+- **mapr_external:** host_name:ip_public  **All host in your cluster***
+- **mapr_subnet:** your intenal ip subnet
+- **cluster_admin_password:** your password for mapr users
+- you can also change the names of the disks if necessary....
+- if you want to install the community version replace the value M5 by M3 for the license_type input
 
 ```
 environment:
@@ -149,4 +153,9 @@ $ terraform init
 $ terraform apply
 
 ```
+
+After a few minutes your HPE Ezmeral Data Fabric Cluster is up 😀 
+
+To activate the Enterprise license (to have the snap functionality) you need to create an account on mapr and register your cluster and then copy the license.
+You must connect on the following link: https://mapr.com/user/
 
