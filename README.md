@@ -366,5 +366,5 @@ mapr-sqlserver-data01   Bound    mapr-pv-8a5dfc69-9e89-4ebe-a008-fdb95830c25f   
 
 You can connect to the MapR management web interface and see the volume created :
 
-![mapr volume, maprvolume](dashboard-volume1.png)
+![mapr volume, maprvolume](/images/dashboard-volume1.png)
 
