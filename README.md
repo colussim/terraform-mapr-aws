@@ -178,3 +178,19 @@ Then connect (or create an account) on https://mapr.com/user/ and add your clust
 Go to the Admin/Cluster Settings/Licenses menu and choose the option that suits you:
 ![mapr license, maprlicense](/images/maprlic.png)
 
+## Next Step
+
+It's up to you ! Browse the HPE Ezmeral Data Fabric features through the web management interface.
+
+You can also try using workloads on your kubernetes cluster.
+
+To continue on our kubernetes cluster we will:
+
+- install the CSI drivers for HPE Ezmeral Data Fabric
+- create a storage class
+- create a PVC 
+
+### install the CSI drivers for HPE Ezmeral Data Fabric
+
+
+
