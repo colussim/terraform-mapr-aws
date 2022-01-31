@@ -66,7 +66,7 @@ After a few minutes your kubernetes cluster is up 😀
 For the deployment we will use the Stanzas installer.
 Installer Stanzas enable  API-driven installation for the industry’s only converged data platform.  With this capability, operators can build a Stanza that contains layout  and settings for the cluster to be installed and passes it  programmatically to the installer to execute the set of instructions.
 
-![Stanzas, the Installer Stanzas](/images/stanzas.png)
+![Stanzas, the Installer Stanzas](/images/stanza.png)
 
 This  new capability is very useful when you need a script-based tool to  install the software and you do not want to click through the menus and  options provided by the installer wizard. While this method provides  less visual feedback than the GUI version, it can be faster and more  efficient at installing software on clusters with many nodes. Not only  that, but once a Stanza gets defined, you can automate the cluster setup  process for each successive cluster creation with a minimum set of  changes.
 
