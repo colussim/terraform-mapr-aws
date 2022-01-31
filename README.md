@@ -161,10 +161,15 @@ You can now connect to the web management interface of your cluster : https://wo
 ![mapr login, maprlogin](/images/login2-ui.png).
 
 You have access to a complete dashboard: 
+
 It's up to you to navigate and discover the features of HPE Ezmeral Data Fabric 😀 
 
 ![mapr login, maprlogin](/images/dashboard-infos1.png).
 
+
 To activate the Enterprise license (to have the snap functionality) you need to create an account on mapr and register your cluster and then copy the license.
 You must connect on the following link: https://mapr.com/user/
+
+You must retrieve the id of your cluster.In the dashboard in the menu **Admin/Cluster Settings/Licenses**
+![mapr license, maprlicense(/images/importlincence-mapr1)
 
