@@ -368,3 +368,14 @@ You can connect to the MapR management web interface and see the volume created 
 
 ![mapr volume, maprvolume](/images/dashboard-volume1.png)
 
+### Next
+
+Now you just have to deploy a workload on this PVC and test the snap and clone functions of the CSI drivers,  Enjoy !! 😀 
+
+
+## Conclusion
+
+As you can see, it is quite easy to deploy a HPE Ezmeral Data Fabric File Store with Terraform and set up and use HPE Ezmeral Data Fabric CSI Driver .
+
+In this repository you can just use the **MAPR** part if you already have an existing kubernetes cluster whether it is viryualized or not.
+
