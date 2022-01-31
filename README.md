@@ -192,7 +192,7 @@ To continue on our kubernetes cluster we will:
 
 ### install the CSI drivers for HPE Ezmeral Data Fabric
 
-Connect to one of the nodes of your kubernetes cluster (master node for example) and and run this command :
+Connect to one of the nodes of your kubernetes cluster (ksworker0 node for example) and and run this command :
 
 ```
 $ kubectl create -f https://raw.githubusercontent.com/mapr/mapr-csi/master/deploy/kubernetes/fuse/csi-maprkdf-v1.2.5.yaml
@@ -251,9 +251,8 @@ For example, here we are using "mapr" user ticket file located at /tmp/maprticke
     <li> Assign the value of the converted ticket to <b>CONTAINER_TICKET</b></li>
 </ul>    
 
-Create a Secret for MapR ticket
 
-Logon MapR Cluster (on ksworker0), and locate the ticket file using "maprlogin print" or generate a new ticket file using "maprlogin password".For example, here we are using "mapr" user's ticket file located at /tmp/maprticket_5000.
+Locate the ticket file using "maprlogin print" or generate a new ticket file using "maprlogin password".For example, here we are using "mapr" user's ticket file located at /tmp/maprticket_5000.
 
 ```
 $ su – mapr
@@ -286,6 +285,53 @@ data:
 ```
 $ kubectl create -f secure_ticket.yaml -n mapr-student
 ```
+We can now create our storage class
+
+### Create a storage class
+
+**create_storageclass.yaml** file : 
+
+The **cldbHosts** entry corresponds to the internal ip address of your MAPR cluster, you should probably modify them in this file.
+The restServers entry corresponds to the internal ip address of the server that hosts the web management interface
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mapr-student-sc
+  namespace: mapr-stundent
+provisioner: com.mapr.csi-kdf
+allowVolumeExpansion: true
+parameters:
+    csi.storage.k8s.io/provisioner-secret-name : mapr-provisioner-secrets
+    csi.storage.k8s.io/provisioner-secret-namespace : mapr-student
+    csi.storage.k8s.io/controller-expand-secret-name: mapr-provisioner-secrets 
+    csi.storage.k8s.io/controller-expand-secret-namespace: mapr-student 
+    csiNodePublishSecretName: "mapr-ticket-secret"
+    csiNodePublishSecretNamespace: "mapr-student"
+    restServers: "10.1.0.239:8443" 
+    cldbHosts: "10.1.0.239:7222 10.1.1.158:7222 10.1.0.56:7222"
+    cluster: mapr02-datafabric.local 
+    securityType: secure # Default: unsecure
+    namePrefix: PVC-mssql
+    mountPrefix: /mssql
+    replication: "3"
+    minreplication: "2"
+    nsreplication: "3"
+    nsminreplication: "2"
+    type: "rw"
+    mount: "1"
+```
+
+we will create a storage class called : **mapr-student-sc**
+
+```
+$ kubectl create -f create_storageclass.yaml 
+```
+We can now create our PVC
+
+### Create a PVC
+
 
 
 
