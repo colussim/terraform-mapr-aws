@@ -1,0 +1,28 @@
+environment:
+  mapr_core_version: 6.2.0
+config:
+  cluster_admin_create: true
+  cluster_admin_gid: 5000
+  cluster_admin_group: mapr
+  cluster_admin_id: mapr
+  cluster_admin_uid: 5000
+  cluster_name: mapr02-datafabric.local
+  hosts:
+    - k8sworker0 
+    - k8sworker1 
+    - k8sworker2 
+  disk_stripe: 3
+  disks:
+    - /dev/xvdh
+    - /dev/xvdi
+  ssh_id: root 
+  ssh_password: Bench123
+  license_type: M5
+  mep_version: 8.0.0
+  mapr_external: k8sworker0:54.161.133.187,k8sworker1:54.209.64.65,k8sworker2:3.94.187.194
+  mapr_id: '103754'
+  mapr_name: mcolussi@bluewin.ch
+  mapr_subnet: 10.1.0.0/16
+  security: true
+  cluster_admin_password: "mapr"
+  
