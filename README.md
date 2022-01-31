@@ -372,7 +372,7 @@ You can connect to the MapR management web interface and see the volume created 
 
 Now you just have to deploy a workload on this PVC and test the snap and clone functions of the CSI drivers,  Enjoy !! 😀 
 
-All used files are in the mapr-csi directory
+All used files are in the **mapr-csi** directory
 
 
 ## Conclusion
