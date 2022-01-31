@@ -51,7 +51,7 @@ $ ssh-keygen -t rsa -f id_rsa_aws
 
 We now have two files id_rsa_aws and id_rsa_aws.pub in our ssh-keys directory.
 
-Let’s deploy our infrastructure :
+## Step1 : Let’s deploy our infrastructure :
 
 Use terraform init command in terminal to initialize terraform and download the configuration files.
 
@@ -59,5 +59,14 @@ Use terraform init command in terminal to initialize terraform and download the 
 ```
 $ terraform init
 ```
+After a few minutes your kubernetes cluster is up 😀 
 
+## Step2 : Deployment of HPE Ezmeral Data Fabric 6.2.x
+
+For the deployment we will use the Stanzas installer.
+Installer Stanzas enable  API-driven installation for the industry’s only converged data platform.  With this capability, operators can build a Stanza that contains layout  and settings for the cluster to be installed and passes it  programmatically to the installer to execute the set of instructions.
+
+![Stanzas, the Installer Stanzas](/images/stanzas.png)
+
+This  new capability is very useful when you need a script-based tool to  install the software and you do not want to click through the menus and  options provided by the installer wizard. While this method provides  less visual feedback than the GUI version, it can be faster and more  efficient at installing software on clusters with many nodes. Not only  that, but once a Stanza gets defined, you can automate the cluster setup  process for each successive cluster creation with a minimum set of  changes.
 
