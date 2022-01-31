@@ -270,7 +270,7 @@ $ cat /tmp/maprticket_5000 | base64 > ticket_b64.txt
 
 Create a YAML file named **secure_ticket-secret.yaml** ,**CONTAINER_TICKET** : is the content of the ticket_b64.txt file.
 
-**secure_ticket-secret.yaml** :
+**secure_ticket.yaml** :
 ```
 apiVersion: v1
 kind: Secret
