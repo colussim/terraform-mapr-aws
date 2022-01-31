@@ -108,7 +108,7 @@ config:
   security: true
   cluster_admin_password: "mapr"
 ```
-this deployment requires a root connection.It will authorize root access on your nodes (you will be able to forbid it later). you will have to modify the **variables.tf** file in the **mapr** directory with your values.
+This deployment requires a root connection.It will authorize root access on your nodes (you will be able to forbid it later). you will have to modify the **variables.tf** file in the **mapr** directory with your values.
 
 ```
 
@@ -141,4 +141,12 @@ variable "maprhost" {
 
 ```
 
+Let's deploy our HPE Ezmeral Data Fabric Cluster :
+
+```
+$ cd mapr
+$ terraform init
+$ terraform apply
+
+```
 
