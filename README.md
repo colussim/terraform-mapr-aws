@@ -192,5 +192,45 @@ To continue on our kubernetes cluster we will:
 
 ### install the CSI drivers for HPE Ezmeral Data Fabric
 
+Connect to one of the nodes of your kubernetes cluster (master node for example) and and run this command :
 
+```
+$ kubectl create -f https://raw.githubusercontent.com/mapr/mapr-csi/master/deploy/kubernetes/fuse/csi-maprkdf-v1.2.5.yaml
+```
 
+Check that the driver is well installed you should have 4 pods working :
+```
+$ kubectl get pods -n mapr-csi -o wide                                                                                                                                                                                                                          
+NAME                       READY   STATUS    RESTARTS   AGE   IP           NODE                            NOMINATED NODE   READINESS GATES                                                                                                                                        
+csi-controller-kdf-0       7/7     Running   0          3m   10.44.0.1    k8sworker0.datafabric02.local                                                                                                                                                               
+csi-nodeplugin-kdf-4xsps   3/3     Running   0          3m   10.1.0.239   k8sworker1.datafabric02.local                                                                                                                                                               
+csi-nodeplugin-kdf-q5hrn   3/3     Running   0          3m   10.1.1.158   k8sworker0.datafabric02.local                                                                                                                                                               
+csi-nodeplugin-kdf-rdvgk   3/3     Running   0          3m   10.1.0.56    k8sworker2.datafabric02.local 
+
+```
+
+For dynamic provisioning, you must use a Secret to pass the user name and password of a data-fabric user to the provisioner. This user must have privileges to create and delete a data-fabric volume. The credentials allow the provisioner to make REST calls to the data-fabric webserver. Secrets are protected by the Kubernetes RBAC.
+
+let's create a namespace :
+
+```
+$ kubectl create ns mapr-student
+```
+
+Create a Secret for MapR ticket
+
+Logon MapR Cluster (on ksworker0), and locate the ticket file using "maprlogin print" or generate a new ticket file using "maprlogin password".For example, here we are using "mapr" user's ticket file located at /tmp/maprticket_5000.
+
+```
+$ su – mapr
+$ maprlogin password
+[Password for user 'mapr' at cluster 'mapr-epc': ] 
+MapR credentials of user 'mapr' for cluster 'mapr-epc' are written to '/tmp/maprticket_5000’
+$
+```
+
+Convert the ticket into base64 representation and save the output.
+
+```
+$ cat /tmp/maprticket_5000 | base64 > ticket_b64.txt
+```
