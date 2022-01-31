@@ -6,11 +6,12 @@ variable "private_key" {
 }
 
 variable "master_ip" {
-  default = "107.20.97.62" 
+  default = "x.x.x.x" 
+  description = "The IP address for master node"
 }
 
 variable "rootpw" {
-  default = "Bench123"
+  default = "xxxx"
   description = "Root passwd"
 }
 
@@ -21,6 +22,6 @@ variable "useraws" {
 
 variable "maprhost" {
     type = list
-    default = ["107.20.97.62", "54.161.133.187", "54.209.64.65", "3.94.187.194"]
-    description = "IP public for maprcluster"
+    default = ["x.x.x.x", "x.x.x.x", "x.x.x.x", "x.x.x.x"]
+    description = "IP public for maprcluster node"
 }
