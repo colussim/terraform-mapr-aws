@@ -217,6 +217,40 @@ let's create a namespace :
 $ kubectl create ns mapr-student
 ```
 
+The first step is to create Rest secret for dynamic volume provisioning with your platform details.<br>
+Kubernetes Secrets enable you to inject sensitive data into a pod.
+
+Replace the password string <b>'YWRtaW4='</b> with a base64 encoded version of mapr user password .
+
+**secure_rest_ticket.yaml** file :
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mapr-provisioner-secrets
+  namespace: mapr-student
+type: Opaque
+data:
+  MAPR_CLUSTER_USER: bWFwcg== 
+  MAPR_CLUSTER_PASSWORD: QmVuY2gxMjM=
+```
+
+```
+$ kubectl create -f mapr-provisioner-secrets
+```
+
+The second step is to create a secret for MapR ticket with your platform details.<br></br>
+<p>For static and dynamic provisioning, you must specify a Secret, which is the base64 representation of the ticket, to enable the POSIX client to communicate with a secure MapR cluster. The ticket for the POSIX client can be generated on the MapR cluster using the maprlogin utility.</p>
+<p>The steps to generate the ticket or retrieve the value of the existing ticket are as follows : </p>
+<ul>
+    <li>Logon MapR Cluster, and locate the ticket file using "maprlogin print" or generate a new ticket file using "maprlogin password" :<br> 
+For example, here we are using "mapr" user ticket file located at /tmp/maprticket_5000.</li>
+    <li>Convert the ticket into base64 representation and save the output : <br>
+        cat /tmp/maprticket_5000 | base64</li>
+    <li> Assign the value of the converted ticket to <b>CONTAINER_TICKET</b></li>
+</ul>    
+
 Create a Secret for MapR ticket
 
 Logon MapR Cluster (on ksworker0), and locate the ticket file using "maprlogin print" or generate a new ticket file using "maprlogin password".For example, here we are using "mapr" user's ticket file located at /tmp/maprticket_5000.
@@ -234,3 +268,24 @@ Convert the ticket into base64 representation and save the output.
 ```
 $ cat /tmp/maprticket_5000 | base64 > ticket_b64.txt
 ```
+
+Create a YAML file named **secure_ticket-secret.yaml** ,**CONTAINER_TICKET** : is the content of the ticket_b64.txt file.
+
+**secure_ticket-secret.yaml** :
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mapr-ticket-secret 
+  namespace: mapr-student
+type: Opaque
+data:
+  CONTAINER_TICKET: bWFwcjAyLWRhdGFmYWJyaWMubG9jYWwgVG1hM2FkMzd5R05sVzRBbEJUVVRUMmwrM1ZPS096bTdRSDNNRkJDbGd5NkFTcDFqczNaY3hUM2dEQ1krOU1XQ0ZSbVhFa09tb01LN1ROK3Zuc05zWnZGMUdvNFZVcnp6c2ptTkpGM2s5STMzSWgwWnhOTFhSbzMvZmFOY3JQZjEyOHRKV245amJrZjZIUWZKVktaM3g5U3hzSTBoYi9NWmRVa3BEMys
+```
+
+```
+$ kubectl create -f secure_ticket.yaml -n mapr-student
+```
+
+
+
