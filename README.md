@@ -52,12 +52,18 @@ We now have two files id_rsa_aws and id_rsa_aws.pub in our ssh-keys directory.
 
 ## Step1 : Let’s deploy our infrastructure :
 
-Use terraform init command in terminal to initialize terraform and download the configuration files.
+Use **terraform init** command in terminal to initialize terraform and download the configuration files.
 
 
 ```
 $ terraform init
 ```
+
+Use **terraform apply** command in terminal to create Kubernetes cluster with one master and three nodes:
+```
+$ terraform apply
+```
+
 After a few minutes your kubernetes cluster is up 😀 
 
 ## Step2 : Deployment of HPE Ezmeral Data Fabric 6.2.x
